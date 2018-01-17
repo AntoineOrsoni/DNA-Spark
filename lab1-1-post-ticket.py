@@ -16,7 +16,7 @@ version = "v1"
 sparkToken = "ODVjODQ0ZDItZjI3ZC00ZTc5LWI2MTYtMzU3YWNhY2Y5ZDllMGUwMTIwODEtYTRj"
 sparkRoomID = "Y2lzY29zcGFyazovL3VzL1JPT00vMTgyMDQxMDAtZTcwMS0xMWU3LTg4MjUtOTc2MWUwNDRiODJm"
 deviceID = "d337811b-d371-444c-a49f-9e2791f955b4"
-deviceIpAddress
+deviceIpAddress = "165.10.1.39"
 
 # JSONhttps://sandboxapic.cisco.com/ input
 r_json = {
@@ -68,6 +68,8 @@ print("Service ticket = " + serviceTicket)
 get_headers = {"X-Auth-Token": serviceTicket}
 
 getDeviceInfo = requests.get(get_url, headers=get_headers)
+
+print("\n \n" + "Device information : "+ "\n", getDeviceInfo.json())
 
 print("\n \n" + "Device information : "+ "\n", json.dumps(getDeviceInfo.json(),indent=4))
 
