@@ -15,6 +15,8 @@ password = "Cisco123!"
 version = "v1"
 sparkToken = "ODVjODQ0ZDItZjI3ZC00ZTc5LWI2MTYtMzU3YWNhY2Y5ZDllMGUwMTIwODEtYTRj"
 sparkRoomID = "Y2lzY29zcGFyazovL3VzL1JPT00vMTgyMDQxMDAtZTcwMS0xMWU3LTg4MjUtOTc2MWUwNDRiODJm"
+deviceID = "d337811b-d371-444c-a49f-9e2791f955b4"
+deviceIpAddress
 
 # JSONhttps://sandboxapic.cisco.com/ input
 r_json = {
@@ -26,12 +28,14 @@ r_json = {
 post_url = "https://"+apicem_ip+"/api/"+version+"/ticket"
 
 # GET url
-get_url = "https://"+apicem_ip+"/api/"+version+"/interface"
+
+# GET INTERFACES OF DEVICE-ID
+# get_url = "https://"+apicem_ip+"/api/"+version+"/interface/network-device/"+deviceID
+
+get_url = "https://"+apicem_ip+"/api"+version+"/network-device/ip-address/"+deviceIpAddress
 
 # All APIC-EM REST API request and response content type is JSON.
 headers = {'content-type': 'application/json'}
-
-#test
 
 
 # Make request and get response - "resp" is the response of this request
@@ -53,23 +57,25 @@ print ("\nPretty print response:\n",json.dumps(response_json,indent=4))
 
 # serviceTicket = service ticket returned by the APIC
 serviceTicket = response_json["response"]["serviceTicket"]
-
+print("Service ticket = " + serviceTicket)
 
 # ----------------------------------------
 # Get device state
 # ----------------------------------------
 
-get_headers = {"x-auth-token": serviceTicket}
+# Example of deviceID : d337811b-d371-444c-a49f-9e2791f955b4
 
-getDeviceInfo = requests.get(get_url, params=get_headers)
+get_headers = {"X-Auth-Token": serviceTicket}
 
-print("\n \n Device information : \n", json.dumps(getDeviceInfo.json(),indent=4))
+getDeviceInfo = requests.get(get_url, headers=get_headers)
+
+print("\n \n" + "Device information : "+ "\n", json.dumps(getDeviceInfo.json(),indent=4))
 
 
 
 # JSON : build the message
 
-sparkMessage = str(serviceTicket) + " \n **desole sylvain pour le spam**"
+sparkMessage = str(serviceTicket) + "\n" + "**desole sylvain pour le spam**"
 
 spark_json = {
 	"roomId" : sparkRoomID,
