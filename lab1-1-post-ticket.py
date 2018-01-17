@@ -9,7 +9,8 @@ import json  # Import JSON encoder and decode module
 requests.packages.urllib3.disable_warnings()  # Disable warnings
 
 # APIC-EM IP, modify these parameters if you are using your own APIC-EM
-apicem_ip = "devnetapi.cisco.com/sandbox/apic_em"
+# apicem_ip = "devnetapi.cisco.com/sandbox/apic_em"
+apicem_ip = "sandboxapic.cisco.com:443"
 username = "devnetuser"
 password = "Cisco123!"
 version = "v1"
@@ -18,7 +19,7 @@ sparkRoomID = "Y2lzY29zcGFyazovL3VzL1JPT00vMTgyMDQxMDAtZTcwMS0xMWU3LTg4MjUtOTc2M
 deviceID = "d337811b-d371-444c-a49f-9e2791f955b4"
 deviceIpAddress = "165.10.1.39"
 
-# JSONhttps://sandboxapic.cisco.com/ input
+# JSON
 r_json = {
     "username": username,
     "password": password
@@ -32,7 +33,8 @@ post_url = "https://" + apicem_ip + "/api/" + version + "/ticket"
 # GET INTERFACES OF DEVICE-ID
 # get_url = "https://"+apicem_ip+"/api/"+version+"/interface/network-device/"+deviceID
 
-get_url = "https://" + apicem_ip + "/api" + version + "/network-device/ip-address/"
+# get_url = "https://" + apicem_ip + "/api" + version + "/network-device/ip-address/165.10.1.39"
+get_url = "https://sandboxapic.cisco.com:443/api/v1/network-device/ip-address/165.10.1.39"
 
 # All APIC-EM REST API request and response content type is JSON.
 headers = {'content-type': 'application/json'}
@@ -56,7 +58,7 @@ print ("\nPretty print response:\n", json.dumps(response_json, indent=4))
 
 # serviceTicket = service ticket returned by the APIC
 serviceTicket = response_json["response"]["serviceTicket"]
-print("Service ticket = " + serviceTicket)
+print("\n \n Service ticket = " + serviceTicket)
 
 # ----------------------------------------
 # Get device state
@@ -64,15 +66,22 @@ print("Service ticket = " + serviceTicket)
 
 # Example of deviceID : d337811b-d371-444c-a49f-9e2791f955b4
 
-get_headers = {"X-Auth-Token": serviceTicket}
+get_headers = {
+    "X-Auth-Token": serviceTicket,
+    "Cache-Control": "no-cache",
+    'Postman-Token': "61b3cbf7-ef6a-cbc8-d66b-b55b31d2c453"
+}
 
 get_params = {"ipAddress": deviceIpAddress}
 
-getDeviceInfo = requests.get(get_url, headers=get_headers, params=get_params, verify=False)
+getDeviceInfo = requests.request("GET", get_url, headers=get_headers)
 
-print("\n \n" + "Device information : " + "\n" + str(getDeviceInfo))
 
-print("\n \n" + "Device information : " + "\n", json.dumps(getDeviceInfo.json(), indent=4))
+print("\n \n Response code " + str(getDeviceInfo.status_code))
+
+print("\n \n" + "Device information : " + "\n" + getDeviceInfo.text)
+
+# print("\n \n" + "Device information : " + "\n", json.dumps(getDeviceInfo.json(), indent=4))
 
 # JSON : build the message
 
