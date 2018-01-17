@@ -31,6 +31,7 @@ get_url = "https://"+apicem_ip+"/api/"+version+"/interface"
 # All APIC-EM REST API request and response content type is JSON.
 headers = {'content-type': 'application/json'}
 
+#test
 
 
 # Make request and get response - "resp" is the response of this request
