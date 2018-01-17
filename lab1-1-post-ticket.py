@@ -33,8 +33,8 @@ post_url = "https://" + apicem_ip + "/api/" + version + "/ticket"
 # GET INTERFACES OF DEVICE-ID
 # get_url = "https://"+apicem_ip+"/api/"+version+"/interface/network-device/"+deviceID
 
-# get_url = "https://" + apicem_ip + "/api" + version + "/network-device/ip-address/165.10.1.39"
-get_url = "https://sandboxapic.cisco.com:443/api/v1/network-device/ip-address/165.10.1.39"
+get_url = "https://" + apicem_ip + "/api/" + version + "/network-device/ip-address/" + deviceIpAddress
+# get_url = "https://sandboxapic.cisco.com:443/api/v1/network-device/ip-address/165.10.1.39"
 
 # All APIC-EM REST API request and response content type is JSON.
 headers = {'content-type': 'application/json'}
@@ -79,13 +79,14 @@ getDeviceInfo = requests.request("GET", get_url, headers=get_headers)
 
 print("\n \n Response code " + str(getDeviceInfo.status_code))
 
-print("\n \n" + "Device information : " + "\n" + getDeviceInfo.text)
+print("\n \n" + "Device information : " + "\n", json.dumps(getDeviceInfo.json(), indent=4))
 
-# print("\n \n" + "Device information : " + "\n", json.dumps(getDeviceInfo.json(), indent=4))
-
+print("\n \n")
 # JSON : build the message
 
-sparkMessage = str(serviceTicket) + "\n" + "**desole sylvain pour le spam**"
+deviceStatus = getDeviceInfo.json()["response"]['reachabilityStatus']
+
+sparkMessage = "The device " + deviceIpAddress + " is " + deviceStatus
 
 spark_json = {
     "roomId": sparkRoomID,
@@ -103,4 +104,4 @@ spark_resp = requests.post(spark_post_url, json.dumps(spark_json), headers=spark
 print("Spark status ", spark_resp.status_code)
 
 spark_response_json = spark_resp.json()
-print("\nPretty response from Spark : \n", json.dumps(spark_response_json, indent=4))
+print("Pretty response from Spark :", json.dumps(spark_response_json, indent=4))
