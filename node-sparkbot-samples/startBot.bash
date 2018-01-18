@@ -1,0 +1,1 @@
+DEBUG=sparkbot*,samples* SPARK_TOKEN=OTI3NDAzMjctMWE5OS00NjViLWJkNWYtMjM1NWExZTdlZTU3OTY0NGI2NDQtZWE3 node examples/helloworld.js
