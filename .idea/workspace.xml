@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6837461-9c09-4080-862a-e0f5131e1c1f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/botkit-ciscospark-samples/learninglab/skills/z-fallback.js" afterPath="$PROJECT_DIR$/botkit-ciscospark-samples/learninglab/skills/z-fallback.js" />
-      <change beforePath="$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/command-antoine.js" afterPath="$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/command-antoine.js" />
-      <change beforePath="$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/z-fallback.js" afterPath="$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/z-fallback.js" />
+      <change beforePath="$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/command-antoine.js" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -65,41 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="command-antoine.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/command-antoine.js">
+      <file leaf-file-name="command-listen-word.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/command-listen-word.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="27" lean-forward="true" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="z-fallback.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/z-fallback.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="2" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event-join.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/event-join.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spark_bot.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/spark_bot.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -415,14 +383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/command-help.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/learninglab/skills/z-fallback.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -439,18 +399,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/command-antoine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="27" lean-forward="true" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/z-fallback.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="2" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/command-help.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/botkit-ciscospark-samples/template/skills/command-listen-word.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
           <folding />
         </state>
       </provider>
