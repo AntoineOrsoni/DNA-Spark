@@ -11,7 +11,7 @@ module.exports = function (controller) {
         // Sending the POST
 
         var data = JSON.stringify({
-            "name": name
+            "ipAddress": name
         });
 
         var url = "http://127.0.0.1:5000";
