@@ -23,12 +23,21 @@ def getDeviceStatus():
 
     # APIC-EM IP, modify these parameters if you are using your own APIC-EM
     # apicem_ip = "devnetapi.cisco.com/sandbox/apic_em"
-    apicem_ip = "sandboxapic.cisco.com:443"
+
+    apicem_ip = "sandboxapicem.cisco.com:443"
     username = "devnetuser"
     password = "Cisco123!"
     version = "v1"
-    sparkToken = "ODVjODQ0ZDItZjI3ZC00ZTc5LWI2MTYtMzU3YWNhY2Y5ZDllMGUwMTIwODEtYTRj"
-    sparkRoomID = "Y2lzY29zcGFyazovL3VzL1JPT00vMTgyMDQxMDAtZTcwMS0xMWU3LTg4MjUtOTc2MWUwNDRiODJm"
+
+    # Token Antoine
+    # sparkToken = "ODVjODQ0ZDItZjI3ZC00ZTc5LWI2MTYtMzU3YWNhY2Y5ZDllMGUwMTIwODEtYTRj"
+
+    sparkToken = "OTI3NDAzMjctMWE5OS00NjViLWJkNWYtMjM1NWExZTdlZTU3OTY0NGI2NDQtZWE3"
+
+    # Test space
+    # sparkRoomID = "Y2lzY29zcGFyazovL3VzL1JPT00vMTgyMDQxMDAtZTcwMS0xMWU3LTg4MjUtOTc2MWUwNDRiODJm"
+    sparkRoomID = "Y2lzY29zcGFyazovL3VzL1JPT00vZjdlOGZhZTQtOGQwNi0zZGYwLTk4YzgtZDY5Mjg1NmQzODE2"
+
     deviceID = "d337811b-d371-444c-a49f-9e2791f955b4"
     # deviceIpAddress = "165.10.1.39"
 
@@ -103,7 +112,13 @@ def getDeviceStatus():
     print("\n \n")
     # JSON : build the message
 
-    deviceStatus = getDeviceInfo.json()["response"]['reachabilityStatus']
+    print("getDeviceInfo.status_code : ")
+    print(getDeviceInfo.status_code)
+
+    if getDeviceInfo.status_code == 200:
+        deviceStatus = getDeviceInfo.json()["response"]['reachabilityStatus']
+    else:
+        deviceStatus = "not found ! Make sure the IP address is valid."
 
     sparkMessage = "The device " + deviceIpAddress + " is " + deviceStatus
 

@@ -7,7 +7,6 @@ module.exports = function (controller) {
         bot.reply(message, text);
 
 
-
         // Sending the POST
 
         var data = JSON.stringify({
