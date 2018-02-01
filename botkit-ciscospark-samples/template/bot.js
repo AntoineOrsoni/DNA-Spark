@@ -99,4 +99,3 @@ bot.enrichCommand = function (message, command) {
 
     return "`" + command + "`";
 }
-
