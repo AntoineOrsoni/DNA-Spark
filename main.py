@@ -29,9 +29,7 @@ def getDeviceStatus():
     password = "Cisco123!"
     version = "v1"
 
-    # Token Antoine
-    # sparkToken = "ODVjODQ0ZDItZjI3ZC00ZTc5LWI2MTYtMzU3YWNhY2Y5ZDllMGUwMTIwODEtYTRj"
-
+    # token of the bot
     sparkToken = "OTI3NDAzMjctMWE5OS00NjViLWJkNWYtMjM1NWExZTdlZTU3OTY0NGI2NDQtZWE3"
 
     # Test space
